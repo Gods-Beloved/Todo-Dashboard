@@ -1,0 +1,27 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    //600px / 16 to get ems
+    //min-width:600px
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    //min-width: 900px
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    //min-width:1200
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    //min-width:1800
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
