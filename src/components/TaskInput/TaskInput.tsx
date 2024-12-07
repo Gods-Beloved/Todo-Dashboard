@@ -22,7 +22,9 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask }) => {
         onChange={(e) => setTaskTitle(e.target.value)}
         placeholder="Enter a task"
       />
-      <button onClick={handleAddTask}>Add Task</button>
+      <button className={styles.addButton} onClick={handleAddTask}>
+        Add Task
+      </button>
     </div>
   );
 };

@@ -1,1 +1,37 @@
+@use ".././styles/variables";
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  width: 100vw;
+}
+
+.taskInputContainer {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.filterButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .active {
+    background-color: #007bff; /* Highlight for active filter */
+    color: white; /* Text color for active filter */
+    font-weight: bold;
+  }
+
+  button {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.taskList {
+  width: 60%;
+}

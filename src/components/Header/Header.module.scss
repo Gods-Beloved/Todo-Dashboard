@@ -1,3 +1,15 @@
-header {
+@use "./../../styles/variables";
+
+h1 {
   text-transform: uppercase;
+  font-style: italic;
+  display: inline-block;
+  color: white;
+  padding: 1rem;
+  cursor: default;
+  border-radius: 8px;
+  font-size: 2rem;
+  background-color: variables.$border-blue;
+  letter-spacing: 0.5rem;
+  margin: 3rem 5rem;
 }
