@@ -9,6 +9,7 @@ export interface Task {
 
 const useTasks = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [filter, setFilter] = useState<"all" | "completed" | "pending">("all");
 
   const addTask = (title: string) => {
     const newTask: Task = {
@@ -20,7 +21,31 @@ const useTasks = () => {
     setTasks([...tasks, newTask]);
   };
 
-  return { tasks, addTask };
+  const toggleTaskCompletion = (id: string) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
+  const deleteTask = (id: string) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+  };
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "completed") return task.completed;
+    if (filter === "pending") return !task.completed;
+    return true; // 'all'
+  });
+
+  return {
+    tasks: filteredTasks,
+    addTask,
+    toggleTaskCompletion,
+    deleteTask,
+    setFilter,
+  };
 };
 
 export default useTasks;

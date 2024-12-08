@@ -9,13 +9,23 @@ interface Task {
 
 interface TaskListProps {
   tasks: Task[];
+  onToggleCompletion: (id: string) => void;
+  onDeleteTask: (id: string) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks }) => (
+const TaskList: React.FC<TaskListProps> = ({
+  tasks,
+  onToggleCompletion,
+  onDeleteTask,
+}) => (
   <ul className={styles.taskList}>
     {tasks.map((task) => (
-      <li key={task.id} className={task.completed ? styles.completed : ""}>
-        {task.title}
+      <li key={task.id} className={task.completed ? "completed" : ""}>
+        <span>{task.title}</span>
+        <button onClick={() => onToggleCompletion(task.id)}>
+          {task.completed ? "Undo" : "Complete"}
+        </button>
+        <button onClick={() => onDeleteTask(task.id)}>Delete</button>
       </li>
     ))}
   </ul>
