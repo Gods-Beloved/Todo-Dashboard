@@ -1,8 +1,17 @@
 @use "./../../styles/variables";
+@use "./../../styles/mixins";
+
+header {
+  display: flex;
+  justify-content: start;
+
+  @include mixins.respond(tab-port) {
+    justify-content: center;
+  }
+}
 
 h1 {
   text-transform: uppercase;
-  font-style: italic;
   display: inline-block;
   color: white;
   padding: 1rem;
@@ -12,4 +21,12 @@ h1 {
   background-color: variables.$border-blue;
   letter-spacing: 0.5rem;
   margin: 3rem 5rem;
+  @include mixins.respond(tab-port) {
+    font-size: 1.6rem;
+  }
+
+  @include mixins.respond(phone) {
+    margin-top: 3rem;
+    font-size: 1.4rem;
+  }
 }

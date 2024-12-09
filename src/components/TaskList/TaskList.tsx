@@ -20,8 +20,10 @@ const TaskList: React.FC<TaskListProps> = ({
 }) => (
   <ul className={styles.taskList}>
     {tasks.map((task) => (
-      <li key={task.id} className={task.completed ? "completed" : ""}>
-        <span>{task.title}</span>
+      <li key={task.id}>
+        <span className={task.completed ? styles.completed : ""}>
+          {task.title}
+        </span>
 
         <div>
           <button onClick={() => onToggleCompletion(task.id)}>
