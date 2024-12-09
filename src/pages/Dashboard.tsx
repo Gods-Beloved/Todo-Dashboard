@@ -15,6 +15,8 @@ const Dashboard = () => {
     filter,
   } = useTasks();
 
+  // On task state change, update localStorage
+
   return (
     <div>
       <Header />
@@ -41,12 +43,15 @@ const Dashboard = () => {
             Pending
           </button>
         </div>
+
         <div className={styles.taskList}>
-          <TaskList
-            tasks={tasks}
-            onToggleCompletion={toggleTaskCompletion}
-            onDeleteTask={deleteTask}
-          />
+          {tasks.length > 0 && (
+            <TaskList
+              tasks={tasks}
+              onToggleCompletion={toggleTaskCompletion}
+              onDeleteTask={deleteTask}
+            />
+          )}
         </div>
       </main>
     </div>
