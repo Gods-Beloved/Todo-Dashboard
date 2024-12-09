@@ -1,4 +1,6 @@
 @use "./../../styles/variables";
+@use "./../../styles/mixins";
+
 input {
   width: 70%;
   max-width: 80rem;
@@ -18,6 +20,14 @@ input {
   justify-content: center;
   width: 50%;
   margin-bottom: 2rem;
+
+  @include mixins.respond(tab-port) {
+    width: 80%;
+  }
+
+  @include mixins.respond(phone) {
+    width: 90%;
+  }
 }
 
 button {
