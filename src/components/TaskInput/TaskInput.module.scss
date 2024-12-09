@@ -1,0 +1,35 @@
+@use "./../../styles/variables";
+input {
+  width: 70%;
+  max-width: 80rem;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 1rem;
+  padding: 1rem;
+
+  &:focus {
+    outline: none;
+    border-color: variables.$border-blue;
+  }
+}
+.taskInput {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+
+button {
+  text-transform: uppercase;
+  border-color: variables.$color-grey-dark;
+
+  &:hover {
+    background-color: variables.$border-blue;
+    color: white;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -45,6 +45,7 @@ const useTasks = () => {
     toggleTaskCompletion,
     deleteTask,
     setFilter,
+    filter,
   };
 };
 

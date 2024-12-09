@@ -22,10 +22,13 @@ const TaskList: React.FC<TaskListProps> = ({
     {tasks.map((task) => (
       <li key={task.id} className={task.completed ? "completed" : ""}>
         <span>{task.title}</span>
-        <button onClick={() => onToggleCompletion(task.id)}>
-          {task.completed ? "Undo" : "Complete"}
-        </button>
-        <button onClick={() => onDeleteTask(task.id)}>Delete</button>
+
+        <div>
+          <button onClick={() => onToggleCompletion(task.id)}>
+            {task.completed ? "Undo" : "Complete"}
+          </button>
+          <button onClick={() => onDeleteTask(task.id)}>Delete</button>
+        </div>
       </li>
     ))}
   </ul>
