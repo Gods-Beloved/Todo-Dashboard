@@ -3,5 +3,10 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "types": ["node", "jest"],
+    "lib": ["esnext", "dom"],
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  }
 }

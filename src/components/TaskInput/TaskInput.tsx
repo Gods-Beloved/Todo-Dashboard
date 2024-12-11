@@ -8,14 +8,15 @@ interface TaskInputProps {
 const TaskInput: React.FC<TaskInputProps> = ({ onAddTask }) => {
   const [taskTitle, setTaskTitle] = useState("");
 
-  const handleAddTask = () => {
-    if (taskTitle.trim() === "") return;
+  const handleAddTask = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (taskTitle.trim() === "") return alert("Task cannot be empty");
     onAddTask(taskTitle);
     setTaskTitle("");
   };
 
   return (
-    <div className={styles.taskInput}>
+    <form onSubmit={handleAddTask} className={styles.taskInput}>
       <input
         type="text"
         value={taskTitle}
@@ -25,7 +26,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask }) => {
       <button className={styles.addButton} onClick={handleAddTask}>
         Add Task
       </button>
-    </div>
+    </form>
   );
 };
 
