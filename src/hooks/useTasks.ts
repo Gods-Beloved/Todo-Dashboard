@@ -4,7 +4,8 @@ import {
   getTasksFromDB,
   updateTaskInDB,
   deleteTaskFromDB,
-} from "../utils/indexedDb.js";
+} from "../utils/indexedDb";
+import { v4 as uuidv4 } from "uuid";
 
 export interface Task {
   id: string;
@@ -28,7 +29,7 @@ const useTasks = () => {
 
   const addTask = async (title: string) => {
     const newTask: Task = {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       title,
       completed: false,
       createdAt: new Date(),
